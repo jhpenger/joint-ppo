@@ -32,10 +32,10 @@ def assign_env(env_config):
     print("worker index is {}".format(env_config.worker_index))
     if env_config.worker_index % 2 == 0:
         print('in even env')
-        env = sonic_on_ray.make(game='BustAMove-Snes', state='BustAMove.1pplay.Level10')
+        env = sonic_on_ray.make(game='Airstriker-Genesis', state='Level1')
     else:
         print('in odd env')
-        env = sonic_on_ray.make(game='BustAMove-Snes', state='BustAMove.1pplay.Level40')
+        env = sonic_on_ray.make(game='Airstriker-Genesis', state='Level1)
 
     return env
 
@@ -48,7 +48,8 @@ config = ppo.DEFAULT_CONFIG.copy()
 config.update({
     #"env_config": env_config,
     #'timesteps_per_batch': 40000,
-    'timesteps_per_batch': 8,
+    #'timesteps_per_batch': 8,
+    'train_batch_size0' : 8,
     #'min_steps_per_task': 100,
     #'num_workers': 32,
     'num_workers': 2,
@@ -58,7 +59,8 @@ config.update({
     'num_sgd_iter': 3,
     #'sgd_batchsize': 4096,
     #'sgd_batchsize': 128,
-    'sgd_stepsize': 2e-4,
+    #'sgd_stepsize': 2e-4,
+    'lr' : 2e-4,
     'use_gae': True,
     'horizon': 4096,
     'kl_coeff': 0.0,
