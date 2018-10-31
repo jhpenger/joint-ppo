@@ -35,7 +35,7 @@ def assign_env(env_config):
         env = sonic_on_ray.make(game='Airstriker-Genesis', state='Level1')
     else:
         print('in odd env')
-        env = sonic_on_ray.make(game='Airstriker-Genesis', state='Level1)
+        env = sonic_on_ray.make(game='Airstriker-Genesis', state='Level1')
 
     return env
 
